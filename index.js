@@ -49,7 +49,11 @@ class logger{
         try{
             color = this.color[code];
         } catch(e){
-            color = this.color("white");
+            color = this.color["white"];
+        }
+        
+        if(!color){
+            color = this.color["white"];
         }
 
         return color;
@@ -59,12 +63,15 @@ class logger{
         let text = data.split(" ")
         
         let color = text[0];
-        color = color.replace("@", "");
-
-        text = text.slice(1);
+        
+        if(color[0] == "@"){
+            text = text.slice(1);
+        }
         text = text.join(" ");
-
+        
+        color = color.replace("@", "");
         color = this.getColorCode(color);
+        
         return Array(color, text);
     }
 
