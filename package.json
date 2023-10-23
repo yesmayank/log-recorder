@@ -1,0 +1,19 @@
+{
+  "name": "log-recorder",
+  "version": "1.0.0",
+  "description": "Simple package to console in formated manner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yesmayank/log-recorder.git"
+  },
+  "author": "Mayank Mani Tripathi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yesmayank/log-recorder/issues"
+  },
+  "homepage": "https://github.com/yesmayank/log-recorder#readme"
+}
