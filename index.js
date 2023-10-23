@@ -1,6 +1,7 @@
 class logger{
     method = "log";
     showDateTime = false;
+    defaultColor = "white";
     color = {
         black: "\u001b[30m",
         red: "\u001b[31m",
@@ -19,16 +20,8 @@ class logger{
         if(options[0] == true) {
             this.showDateTime = true;
         }
-        return;
-        if(method == "warn"){
-        
-            this.method = "warn";
-        } else if(method == "alert"){
-        
-            this.method = "alert";
-        } else {
-            
-            this.method = "log";
+        if(options[1]){
+            this.defaultColor = options[1];
         }
     }
 
@@ -66,6 +59,8 @@ class logger{
         
         if(color[0] == "@"){
             text = text.slice(1);
+        } else {
+            color = "@" + this.defaultColor;
         }
         text = text.join(" ");
         
@@ -80,6 +75,7 @@ class logger{
         let txt = this.getLogFormat(data);
         let format = txt[0]
         data = txt[1]
+        
         if(this.showDateTime){
             let consoleData =  format  + "[ " + this.getCurrentDateTime() + " ]  -  " + data + format;
             console.log(consoleData);
